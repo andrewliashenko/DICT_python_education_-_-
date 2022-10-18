@@ -5,6 +5,10 @@ if number_of_people > 0:
     for i in range(int(number_of_people)):
         names = input(">")
         payments[names] = 0
+    total = int(input("Enter the total amount:\n>"))
+    a = int(total // number_of_people)
+    for names in payments:
+        payments[names] = a
     print(payments)
 else:
     print("No one is joining for the party")

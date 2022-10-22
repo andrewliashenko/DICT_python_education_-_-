@@ -18,7 +18,6 @@ if number_of_people > 0:
         lucky_price = round(total_price / (number_of_people - 1))
         for p in payments.keys():
             payments[p] = lucky_price
-        if lucky:
             payments[lucky_name] = 0
         print(payments)
     elif lucky == "no":

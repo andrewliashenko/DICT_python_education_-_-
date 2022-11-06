@@ -11,9 +11,9 @@ def recipe(a, b, c, cup, m):
 
 def remain():
     print(f"The coffee machine has:"
-          f"\n{ingredients['water']} of water"
-          f"\n{ingredients['milk']} of milk"
-          f"\n{ingredients['coffee']} of coffee beans"
+          f"\n{ingredients['water']}ml of water"
+          f"\n{ingredients['milk']}ml of milk"
+          f"\n{ingredients['coffee']}g of coffee beans"
           f"\n{ingredients['number_of_cups']} of disposable cups"
           f"\n{ingredients['money']} of money")
 
@@ -48,13 +48,11 @@ while True:
         c = int(input("Write how many grams of coffee beans you want to add:\n>"))
         cup = int(input("Write how many disposable coffee cups you want to add:\n>"))
         recipe(-a, -b, -c, -cup, 0)
-        remain()
     elif action == "take":
         print(f"I gave you {ingredients['money']}")
         recipe(0, 0, 0, 0, ingredients['money'])
         remain()
     elif action == "remaining":
-        recipe(0, 0, 0, 0, 0)
         remain()
     elif action == "exit":
         break

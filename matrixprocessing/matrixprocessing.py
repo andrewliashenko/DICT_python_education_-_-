@@ -23,8 +23,17 @@ def correct(a, b):
             break
 
 
+def result(a):
+    if size[0] == 1:
+        print(a)
+    else:
+        splits = np.array_split(a, size[0])
+        for array in splits:
+            print(list(array))
+
+
 choice = int(input("Your choice:"))
-size = list(map(int, input("Enter size matrix:\n").split()))
+size = list(map(int, input("Enter size matrix(height width):\n").split()))
 if choice == 1:
     print("Enter first matrix:")
     matrix(matrix_1, size[0])
@@ -41,9 +50,21 @@ if choice == 1:
         if m == size[1] - 1:
             m = -1
             k += 1
-    if size[0] == 1:
-        print(sum_matrix)
-    else:
-        splits = np.array_split(sum_matrix, size[0])
-        for array in splits:
-            print(list(array))
+    result(sum_matrix)
+
+elif choice == 2:
+    mult_const = []
+    print("Enter matrix:")
+    matrix(matrix_1, size[0])
+    correct(matrix_1, size)
+    constant = int(input("Enter constant:"))
+    m = -1
+    k = 0
+    for _ in range(size[0] * size[1]):
+        m += 1
+        multiply = matrix_1[k][m] * constant
+        mult_const.append(multiply)
+        if m == size[1] - 1:
+            m = -1
+            k += 1
+    result(mult_const)

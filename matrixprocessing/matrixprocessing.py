@@ -5,7 +5,6 @@ print("""1. Add matrices
 0. Exit""")
 matrix_1 = []
 matrix_2 = []
-sum_matrix = []
 
 
 def matrix(a, b):
@@ -32,9 +31,22 @@ def result(a):
             print(list(array))
 
 
+def multiply(a):
+    d = -1
+    k = 0
+    for _ in range(size_2nd[1] * size_1st[1]):
+        d += 1
+        mult_count = matrix_1[a][d] * matrix_2[d][k]
+        lst.append(mult_count)
+        if d == size_1st[1] - 1:
+            d = -1
+            k += 1
+
+
 choice = int(input("Your choice:"))
-size = list(map(int, input("Enter size matrix(height width):\n").split()))
 if choice == 1:
+    sum_matrix = []
+    size = list(map(int, input("Enter size matrix(height width):\n").split()))
     print("Enter first matrix:")
     matrix(matrix_1, size[0])
     correct(matrix_1, size)
@@ -53,6 +65,7 @@ if choice == 1:
     result(sum_matrix)
 
 elif choice == 2:
+    size = list(map(int, input("Enter size matrix(height width):\n").split()))
     mult_const = []
     print("Enter matrix:")
     matrix(matrix_1, size[0])
@@ -68,3 +81,34 @@ elif choice == 2:
             m = -1
             k += 1
     result(mult_const)
+
+elif choice == 0:
+    print("You left")
+
+elif choice == 3:
+    size_1st = list(map(int, input("Enter size first matrix(height width):\n").split()))
+    print("Enter first matrix:")
+    matrix(matrix_1, size_1st[0])
+    correct(matrix_1, size_1st)
+    size_2nd = list(map(int, input("Enter size second matrix(height width):\n").split()))
+    print("Enter second matrix:")
+    matrix(matrix_2, size_2nd[0])
+    correct(matrix_2, size_2nd)
+    if size_1st[1] != size_2nd[0]:
+        print("ERROR")
+    else:
+        z = -1
+        lst = []
+        for _ in range(size_1st[0]):
+            z += 1
+            multiply(a=z)
+        splits = np.array_split(lst, size_1st[0] * size_2nd[1])
+        resulting = []
+        c = -1
+        for _ in range(size_1st[0] * size_2nd[1]):
+            c += 1
+            resulting.append(sum(splits[c]))
+        spl = np.array_split(resulting, size_1st[0])
+        for array in spl:
+            print(list(array))
+

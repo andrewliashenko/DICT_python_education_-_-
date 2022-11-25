@@ -18,11 +18,12 @@ def remain():
           f"\n{ingredients['money']} of money")
 
 
-def ingredient(a, b, c):
+def ingredient(a, b, c, cup, m):
     k = [ingredients['water'] // a, ingredients['milk'] // b, ingredients['coffee'] // c]
     n = min(k)
     if n >= 1:
         print("I have enough resources, making you a coffee!")
+        recipe(a, b, c, cup, m)
     elif n < 1:
         print("not enough ingredients")
     elif ingredients['number_of_cups'] == 0:
@@ -34,14 +35,11 @@ while True:
     if action == "buy":
         buy = int(input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:\n>"))
         if buy == 1:
-            ingredient(250, 1, 16)
-            recipe(a=250, b=0, c=16, cup=1, m=-4)
+            ingredient(250, 1, 16, 1, -4)
         elif buy == 2:
-            ingredient(350, 75, 20)
-            recipe(350, 75, 20, 1, -7)
+            ingredient(350, 75, 20, 1, -7)
         elif buy == 3:
-            ingredient(200, 100, 12)
-            recipe(200, 100, 12, 1, -6)
+            ingredient(200, 100, 12, 1, -6)
     elif action == "fill":
         a = int(input("Write how many ml of water you want to add:\n>"))
         b = int(input("Write how many ml of milk you want to add:\n>"))

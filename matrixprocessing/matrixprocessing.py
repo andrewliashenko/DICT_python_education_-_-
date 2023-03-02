@@ -51,6 +51,13 @@ def transpose(a):
     print(*transpose_result, sep="\n")
 
 
+def determinant2x2(a):
+    part1 = a[r][col] * a[r + 1][col + 1]
+    part2 = a[r][col + 1] * a[r + 1][col]
+    det = part1 - part2
+    print(det)
+
+
 while True:
     print("""1. Add matrices
 2. Multiply matrix by a constant
@@ -162,5 +169,11 @@ while True:
             matrix_1.reverse()
             print(*matrix_1, sep="\n")
 
+    elif choice == 5:
+        size_matrix_det = list(map(int, input("Enter size matrix:\n>").split()))
+        matrix(matrix_1, size_matrix_det[0])
+        r = 0
+        col = 0
 
-        
+        if len(matrix_1) == 2:
+            determinant2x2(matrix_1)

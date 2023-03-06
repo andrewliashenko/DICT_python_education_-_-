@@ -11,7 +11,6 @@ def output(a):
 
 formatter = ["space", "plain", "bold", "italic", "header", "link", "ordered-list", "unordered-list", "new-line", "!help", "!done"]
 text = []
-
 while True:
     enter = str(input("Choose a formatter:"))
     if enter in formatter:
@@ -67,6 +66,8 @@ while True:
         elif enter == "!help":
             navigation()
         elif enter == "!done":
+            f = open("output.md", mode="w")
+            f.write("".join(text))
             break
     else:
         print("Unknown formatting type or command")

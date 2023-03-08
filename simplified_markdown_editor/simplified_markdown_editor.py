@@ -32,7 +32,7 @@ while True:
 
             for i in range(level):
                 header += "#"
-            result = "".join([header, header_txt])
+            result = "".join([header, " ", header_txt])
             output(result)
         elif enter == "link":
             label = input("Label:>")
@@ -60,6 +60,7 @@ while True:
                 text.append(result)
             print("".join(text))
         elif enter == "new-line":
+            text.append("\ ")
             text.append("\n")
         elif enter == "space":
             text.append(" ")

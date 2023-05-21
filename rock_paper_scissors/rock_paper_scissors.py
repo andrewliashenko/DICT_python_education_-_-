@@ -39,6 +39,9 @@ while True:
         print(f"{name}: {rating.values()}")
     if option_player == "!exit":
         print("Bue!")
+        m = open("rating.txt", "w")
+        m.write(f"{name}: {rating.values()}")
+        m.close()
         break
 
 

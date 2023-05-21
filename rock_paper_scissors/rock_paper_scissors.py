@@ -17,11 +17,17 @@ def result():
                 print(lose)
             elif option_computer == option[n+2]:
                 print(win)
+    if option_player not in option and option_player != "!exit":
+        print("Invalid input!")
 
 
-option_player = input(">")
-option = ["rock", "paper", "scissors"]
-option_computer = random.choice(option)
-result()
+while True:
+    option_player = input(">")
+    option = ["rock", "paper", "scissors"]
+    option_computer = random.choice(option)
+    result()
+    if option_player == "!exit":
+        print("Bue!")
+        break
 
 
